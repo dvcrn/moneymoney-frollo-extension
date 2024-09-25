@@ -189,7 +189,7 @@ class Frollo {
 			"User-Agent" => "okhttp/4.12.0"
 		];
 
-		var response = RequestHelper.makeRequest(url, method, headers);
+		var response = RequestHelper.makeRequest(url, method, headers, "");
 		trace(response.content);
 
 		return JsonHelper.parse(response.content);
