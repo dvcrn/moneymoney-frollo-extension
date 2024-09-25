@@ -130,6 +130,9 @@ class Main {
 			Storage.set("access_token", token);
 			Storage.set("token_expiration", token_expiration);
 		}
+
+		trace("Triggering Frollo sync");
+		Frollo.syncAccounts(token);
 	}
 
 	@:luaDotMethod

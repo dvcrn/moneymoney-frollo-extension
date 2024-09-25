@@ -174,4 +174,24 @@ class Frollo {
 		var response = RequestHelper.makeRequest(url, method, headers);
 		return cast JsonHelper.parse(response.content);
 	}
+
+	public static function syncAccounts(accessToken:String):Dynamic {
+		var url = 'https://api.frollo.us/api/v2/aggregation/provideraccounts/sync';
+		var method = "POST";
+		var headers = [
+			"Authorization" => "Bearer " + accessToken,
+			"X-Api-Version" => "2.26",
+			"X-Bundle-Id" => "us.frollo.frollosdk",
+			"X-Device-Version" => "Android12",
+			"X-Software-Version" => "SDK3.28.0-B3270|APP2.26.0-B104594",
+			"Host" => "api.frollo.us",
+			"Connection" => "Keep-Alive",
+			"User-Agent" => "okhttp/4.12.0"
+		];
+
+		var response = RequestHelper.makeRequest(url, method, headers);
+		trace(response.content);
+
+		return JsonHelper.parse(response.content);
+	}
 }
